@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+  }
+  .heading {
+    text-align: center;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .container-fluid {
+    padding: 0;   
+  }
+  
+  .new-task {
+    border: 1px solid grey;
+    border-radius: 5px;
+    max-width: 100%;
+    background: rgba(161, 159, 159,0.5);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .drinks-list  {
+    max-width: 100%;
+  }
+/* store style */
+  .single-item {
+    transition: all 0.3s linear;
+  }
+  .single-item:hover {
+    box-shadow: 0 10px 15px rgb(0, 0, 0);
+  }
+  .img-container {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .store-img {
+    transition: all 1s ease-in-out;
+  }
+  .img-container:hover .store-img {
+    transform: scale(1.2);
+  }
+  .store-item-icon {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem;
+    background: yellow;
+    border-top-left-radius: 1rem;
+    transform: translate(100%, 100%);
+    transition: all 1s ease-in-out;
+    z-index: 1;
+  }
+  .img-container:hover .store-item-icon {
+    transform: translate(0, 0);
+  }
+  .store-item-icon:hover {
+    color: white;
+  } 
+  .view-detail {
+    border: none;
+    color: blue;
+    transition: all 1s ease-in-out;
+  }
+  .view-detail:hover {
+    outline: none;
+    transform: scale(1.2);
+  }
+ .view-detail:focus{
+   outline: none;
+   transform: scale(1.2);
+ }
+ /* cocktail detail style */
+ .cocktail {
+   height: calc(100vh - 50px)
+ }
+.coctail-img__container{
+  position: relative;
+}
+.cocktail-img__container::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: -1.5rem;
+  left: -1.7rem;
+  border: 0.5rem solid yellowgreen;
+  transition: all 1s linear;
+}
+.cocktail-img__container:hover:before {
+  top: 0;
+  left: 0;
+}
+.search-cocktail {
+  width: 60vw
+}

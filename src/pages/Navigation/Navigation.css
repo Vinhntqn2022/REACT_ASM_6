@@ -1,0 +1,15 @@
+.cart-info {
+    border: 0.1rem solid black;
+    color: black;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    padding: 0.4rem 0.6rem;
+  }
+  .cart-info:hover {
+    border-color: blueviolet;
+    background-color: blue;
+    color: blanchedalmond;
+  }
+  .cart-info:hover .cart-info__icon {
+    color: beige;
+  }

@@ -1,0 +1,31 @@
+.signup-container {
+    background: linear-gradient(132deg, #1665c1, #ec5218);
+    animation: BackgroundGradient 30s ease infinite;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: calc(100vh - 60px);
+  
+}
+.formik-signup {
+    background: linear-gradient(rgba(148, 249, 232, 0.5), rgba(249, 228, 148, 0.5));
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+}
+
+@keyframes BackgroundGradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+.signup-button {
+    margin-top: 0;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
