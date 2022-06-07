@@ -65,10 +65,13 @@ export default function SignIn () {
                             <Form.Item wrapperCol={{ offset: 16, span: 4 }} >
                                 <div className="d-flex align-items-baseline"><Button type="link" onClick={handleSignUpShow} > Sign Up </Button><span className="text-light">Registration</span></div>
                             </Form.Item>
-                            <Form.Item label="Username" >
+                            <Form.Item >
                                 <Input
+                                    className="input"
                                     type="text"
                                     name="usename"
+                                    placeholder="Username"
+                                    bordered={false}
                                     prefix={<UserOutlined />}
                                     value={formik.values.usename}
                                     onChange={formik.handleChange}
@@ -77,8 +80,11 @@ export default function SignIn () {
                                     <p style={{color: "red"}}>{formik.errors.usename}</p>
                                 )}
                             </Form.Item>
-                            <Form.Item label="Password" >
+                            <Form.Item >
                                 <Input.Password
+                                    className="input"
+                                    placeholder="Password"
+                                    bordered={false}
                                     type="password"
                                     name="password"
                                     prefix={<LockOutlined />}

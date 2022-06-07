@@ -53,7 +53,8 @@ export default function SignUp () {
         <div className="signup-container">
             <div className="row">
                 <div className="col-md-5 mx-auto">
-                    <div className="formik-signup py-5">  
+                    <div className="formik-signup my-5 py-5"> 
+                        <Title className="text-primary text-center mr-5" level={2}>SIGN UP</Title> 
                         <Form
                             layout="vertical"
                             name="basic"
@@ -62,11 +63,14 @@ export default function SignUp () {
                             initialValues={{ remember: true }}
                             onFinish={formik.handleSubmit}
                         >
-                            <Form.Item wrapperCol={{ offset: 2, span: 24 }} >
-                                <div className="d-flex align-items-baseline"><Title className="text-primary mr-5" level={4}>SIGN UP</Title><span className="text-light ml-8">Already Have account?</span><Button className="text-dark" type="link" onClick={showSignIn} > Login </Button></div>
+                            <Form.Item wrapperCol={{ offset: 14, span: 16 }} >
+                                <div className="d-flex align-items-baseline"><span className="text-light ml-8">Already Have account?</span><Button className="text-dark" type="link" onClick={showSignIn} > Login </Button></div>
                             </Form.Item>
-                            <Form.Item label="Username">
+                            <Form.Item >
                                 <Input
+                                    className="input"
+                                    bordered={false}
+                                    placeholder="Username"
                                     size="small"
                                     type="text"
                                     name="usename"
@@ -78,9 +82,12 @@ export default function SignUp () {
                                     <p style={{color: "red"}}>{formik.errors.usename}</p>
                                 )}
                             </Form.Item>
-                            <Form.Item label="Password" >
+                            <Form.Item >
                                 <Input.Password
-                                     size="small"
+                                    className="input"
+                                    bordered={false}
+                                    placeholder="Password"
+                                    size="small"
                                     type="password"
                                     name="password"
                                     prefix={<LockOutlined />}
@@ -92,8 +99,11 @@ export default function SignUp () {
                                     <p style={{color: "red"}}>{formik.errors.password}</p>
                                 )}
                             </Form.Item>
-                            <Form.Item label="Confirm Password" >
+                            <Form.Item >
                                 <Input.Password
+                                    className="input"
+                                    bordered={false}
+                                    placeholder="Confirm password"
                                     size="small"
                                     type="password"
                                     name="confirm_password"
