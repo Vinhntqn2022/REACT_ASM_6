@@ -6,7 +6,7 @@ import { Input } from "antd";
 import 'antd/dist/antd.css';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 
-function App() {
+function DrinkList() {
     const cocktailsData = useSelector(state => state.CocktailReducer.cocktailsData)
     const [searchCocktailData, setSearchCocktailData] = useState()
     useEffect(() => {
@@ -71,4 +71,4 @@ function App() {
     </div> 
     );
 }
-export default App;
+export default DrinkList;

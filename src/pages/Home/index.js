@@ -2,7 +2,7 @@ import "./Home.css";
 import DrinkList from './DrinkList'
 
 
-export default function Dashboard () {       
+export default function Home() {       
    
   return (
     <div className="container-fluid">
