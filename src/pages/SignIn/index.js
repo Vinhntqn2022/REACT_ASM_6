@@ -1,20 +1,20 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import 'antd/dist/antd.css';
 import { Input, Button, Form, Checkbox, message } from 'antd';
 import { UserOutlined, EyeInvisibleOutlined, EyeTwoTone, LockOutlined } from '@ant-design/icons';
 import { Typography } from 'antd';
 
+import { AuthActions } from "../../redux/rootAction";
 import "./SignIn.css"
-import { AuthActions} from "../../redux/rootAction";
+
 
 export default function SignIn () {
     const userData = useSelector(state => state.AuthReducer.userData)
-
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
     const handleLogin = (values) => {
         const corectUsername = userData.find(user => user.usename === values.usename)
         if(!corectUsername) {
@@ -24,7 +24,7 @@ export default function SignIn () {
         } else {
             dispatch(AuthActions.setToken('2342f2f1d131rf12'))
             message.success("login successfully")
-            navigate('/home')
+            navigate('/')
             }
         }  
     const navigate = useNavigate()

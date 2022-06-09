@@ -1,8 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+
 
 export default function CoctailDetail() {
-    const detailCocktailId = useSelector(state => state.CocktailReducer.detailCocktailId)
+    const { id } = useParams()
+    const cocktailsData = useSelector(state => state.CocktailReducer.cocktailsData)
+    const detailCocktailId = cocktailsData.filter(cocktail => cocktail.idDrink === id)[0]
     return(
         <section className="cocktail py-5">
             <div className="container">

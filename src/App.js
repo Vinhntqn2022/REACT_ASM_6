@@ -14,25 +14,14 @@ import { AuthActions, CocktailActions, GlobalActions } from "./redux/rootAction"
 import { ProtectedRoute } from "./routes/ProtectedRoute"
 import { AuthRoute } from "./routes/AuthRoute"
 import NotFound from "./pages/NotFound";
-import Navigation from "./pages/Navigation";
-import SelectedCocktail from "./pages/Home/SelectedCocktail"
-import CocktailDetail from "./pages/Home/CocktailDetail"
+import Navigation from "./components/Navigation";
+import SelectedCocktail from "./pages/SelectedCocktail"
+import CocktailDetail from "./pages/CocktailDetail"
 
 
 function App() {
-    const detailCocktailId = useSelector(state => state.CocktailReducer.detailCocktailId)
-    const token = useSelector(state => state.AuthReducer.token)
-    console.log(detailCocktailId?.idDrink)
     const dispatch = useDispatch()
-    useEffect(() => {
-        const items = JSON.parse(localStorage.getItem('token'));
-        if (items) {
-         dispatch(AuthActions.setToken(items));
-        }
-      }, []);
-    useEffect(() => {
-        localStorage.setItem('token', JSON.stringify(token));
-    }, [token])
+    const token = useSelector(state => state.AuthReducer.token)
     const getListCocktails = async () => {
       dispatch(GlobalActions.setIsLoading(true))
       try {
@@ -45,6 +34,15 @@ function App() {
       }
     }
     useEffect(() => {
+      const token = JSON.parse(localStorage.getItem("token"))
+      if(token) {
+        dispatch(AuthActions.setToken(token))
+      } 
+    }, [])
+    useEffect(() => {
+      localStorage.setItem("token", JSON.stringify(token))
+    }, [token])
+    useEffect(() => {
       getListCocktails()
     }, [])
       
@@ -54,27 +52,22 @@ function App() {
       <Navigation />
       <Routes> 
         <Route path="/" element={
-          <AuthRoute >
-            <SignIn />
-          </AuthRoute>
-        }/>
-        <Route path="signin" element={
-          <AuthRoute >
-            <SignIn />
-          </AuthRoute>
-        }/>
-          <Route path="signup" element={
-          <AuthRoute >
-            <SignUp />
-          </AuthRoute>
-        }/>
-        <Route path="home" element={
           <ProtectedRoute>
             <Home />
           </ProtectedRoute>
         }/>
+        <Route path="/signin" element={
+          <AuthRoute >
+            <SignIn />
+          </AuthRoute>
+        }/>
+          <Route path="/signup" element={
+          <AuthRoute >
+            <SignUp />
+          </AuthRoute>
+        }/>
         <Route path="cart" element={<SelectedCocktail />} />
-        <Route path={`home/${detailCocktailId?.idDrink*1}`} element={
+        <Route path="home/cocktails/:id" element={
             <CocktailDetail />
         }/>
         <Route path='*' element={<NotFound />}/>
